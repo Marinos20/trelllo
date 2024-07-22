@@ -95,7 +95,7 @@ const submitForm = async () => {
   try {
     newNote.value._id = uuidv4();
 
-    const response = await fetch('http://62.72.5.95:1999/notes', {
+    const response = await fetch('https://post-it.epi-bluelock.bj/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

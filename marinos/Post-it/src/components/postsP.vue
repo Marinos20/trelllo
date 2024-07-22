@@ -183,7 +183,7 @@ const loading = ref(false);
 const getDatas = async () => {
   loading.value = true;
   try {
-    const response = await fetch('http://62.72.5.95:1999/notes');
+    const response = await fetch('https://post-it.epi-bluelock.bj/');
     if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
     const data = await response.json();
     allNotes.value = data.notes;
@@ -239,7 +239,7 @@ const deleteNote = async () => {
   showDeleteConfirm.value = false;
   loading.value = true;
   try {
-    const response = await fetch(`http://62.72.5.95:1999/notes/${selectedNote.value}`, {
+    const response = await fetch(`https://post-it.epi-bluelock.bj/${selectedNote.value}`, {
       method: 'DELETE',
     });
     if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
@@ -266,7 +266,7 @@ const closeEditPopup = () => {
 const submitEditForm = async () => {
   loading.value = true; // Activer le loader
   try {
-    const response = await fetch(`http://62.72.5.95:1999/notes/${editNoteData.value._id}`, {
+    const response = await fetch(`https://post-it.epi-bluelock.bj/${editNoteData.value._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
